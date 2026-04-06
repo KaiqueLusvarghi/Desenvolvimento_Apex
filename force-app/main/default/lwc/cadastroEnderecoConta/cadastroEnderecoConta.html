@@ -8,7 +8,50 @@
                 <lightning-button variant="brand-outline" label="Buscar" onclick={handleBuscarCep}  >
 
                 </lightning-button>
+
+
+                <template if:true={endereco}>
+                    <div class="slds-m-top_medium">
+                         <lightning-input 
+                         type="text" 
+                         label="Logradouro" 
+                         data-field="Logradouro"
+                         onchange={handleChangeEndereco}
+                         value={endereco.logradouro}>
+                         
+                         </lightning-input>
+
+                         <lightning-input 
+                         type="text" 
+                         label="Bairro" 
+                         data-field="Bairro"
+                         onchange={handleChangeEndereco}
+                         value={endereco.bairro}>
+                         </lightning-input>
+
+                         <lightning-input 
+                         type="text" 
+                         label="Cidade" 
+                         data-field="Localidade"
+                         onchange={handleChangeEndereco}
+                         value={endereco.localidade}>
+                         </lightning-input>
+
+                         <lightning-input 
+                         type="text" 
+                         label="Estado" 
+                         data-field="Estado"
+                         onchange={handleChangeEndereco}
+                         value={endereco.estado}>
+                         </lightning-input>
+
+                          <lightning-button variant="success" label="Salvar" onclick={handleSalvarEndereco}  >
+
+                </lightning-button>
+                    </div>
+          </template>
          </div>
+         
 
     </lightning-card>
 </template>
