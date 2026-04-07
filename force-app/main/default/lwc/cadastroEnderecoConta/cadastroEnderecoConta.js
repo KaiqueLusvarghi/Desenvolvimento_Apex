@@ -22,7 +22,7 @@ cep;
             .then((endereco) => {
                 this.endereco = endereco;
                 this.ShowToastEvent('Sucesso', 'Endereço encontrado com sucesso!', 'success');
-            }).catch((error) => {
+            }).catch((error) => {                 
                 this.ShowToastEvent('Error!', 'Não foi possível encontrar o endereço para o CEP informado.', 'error');
             });
             
@@ -40,6 +40,7 @@ cep;
         }).then(() => {
             this.ShowToastEvent('Sucesso', 'CEP Salvo com Sucesso!', 'success');
         }).catch((error) => {
+            console.error('Erro completo:', JSON.stringify(error));
             this.ShowToastEvent('Error!', 'Erro ao Salvar o Endereço.',error.body.message,'error');
         });
 
