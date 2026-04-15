@@ -54,8 +54,8 @@ error;
         
 
         //verificando se os campos obrigatórios estão preenchidos
-        const camposObrigatorios = ['logradouro', 'bairro', 'localidade', 'estado'];
-        const camposVazio = camposObrigatorios.some(campo => !this.endereco[campo] );
+        const camposObrigatorios = ['logradouro', 'bairro', 'localidade', 'estado']; // Adicione os campos obrigatórios aqui
+        const camposVazio = camposObrigatorios.some(campo => !this.endereco[campo] ); // Verifica se algum campo obrigatório está vazio
 
         if (camposVazio) {
             this.ShowToastEvent('Erro!', 'Por favor, preencha todos os campos ! .', 'error');
