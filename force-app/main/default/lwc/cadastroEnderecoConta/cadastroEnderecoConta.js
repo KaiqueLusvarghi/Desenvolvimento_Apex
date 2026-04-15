@@ -22,12 +22,12 @@ error;
     }
 
     handleBuscarCep() {
-        if (this.cep.length !== 8) return; // 👈 fix 1
+        if (this.cep.length !== 8) return; // Validando se o CEP tem 8 dígitos antes de buscar
 
-        this.isLoading = true; // 👈 fix 2 - ativa o loading
+        this.isLoading = true; // Ativa o spinner enquanto busca o endereço
     buscerCep({ cep: this.cep })
         .then((endereco) => {
-            // Verifica se retornou algo válido 👇
+            // Verificando se o endereço foi encontrado
             if (!endereco) {
                 this.ShowToastEvent('Erro!', 'CEP inválido ou não encontrado.', 'error');
                 return;
@@ -44,9 +44,10 @@ error;
         });
 }
     handleChangeEndereco(event) {
-    const field = event.target.dataset.field;
-    const value = event.detail.value;                        
-    this.endereco = { ...this.endereco, [field]: value };    
+
+    const field = event.target.dataset.field; // Obtém o nome do campo a partir do atributo data-field
+    const value = event.detail.value;         // Atualiza o objeto endereco com o novo valor do campo
+    this.endereco = { ...this.endereco, [field]: value };    // Atualiza o objeto endereco com o novo valor do campo
 }
 
     handleSalvarEndereco(){
@@ -67,7 +68,7 @@ error;
             endereco: JSON.stringify(this.endereco) 
         }).then(() => {
             this.ShowToastEvent('Sucesso', 'CEP Salvo com Sucesso!', 'success');
-             this.endereco = null;
+            this.endereco = null;
             this.cep = '';
             this.botaoDesabilitado = true;
         }).catch((error) => {
